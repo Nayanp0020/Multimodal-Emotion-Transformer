@@ -1,0 +1,569 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Emotion AI Login</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            overflow:hidden;
+            background:#020617;
+        }
+
+        /* =========================
+           INTRO SCREEN
+        ========================= */
+
+        .intro-screen{
+
+            position:fixed;
+
+            width:100%;
+
+            height:100vh;
+
+            overflow:hidden;
+
+            z-index:999;
+        }
+
+        .curtain{
+
+            position:absolute;
+
+            top:0;
+
+            width:50%;
+
+            height:100%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #7c3aed,
+                    #4c1d95
+                );
+
+            transition:2s ease;
+
+            z-index:2;
+        }
+
+        .left-curtain{
+
+            left:0;
+
+            border-right:
+                4px solid #c4b5fd;
+        }
+
+        .right-curtain{
+
+            right:0;
+
+            border-left:
+                4px solid #c4b5fd;
+        }
+
+        .open-left{
+            transform:translateX(-100%);
+        }
+
+        .open-right{
+            transform:translateX(100%);
+        }
+
+        .intro-content{
+
+            position:absolute;
+
+            width:100%;
+
+            height:100%;
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:center;
+
+            align-items:center;
+
+            z-index:5;
+
+            color:white;
+
+            text-align:center;
+        }
+
+        .intro-content h1{
+
+            font-size:60px;
+
+            margin-bottom:15px;
+
+            animation:
+                float 3s ease infinite;
+        }
+
+        .intro-content p{
+
+            font-size:18px;
+
+            color:#ddd6fe;
+
+            margin-bottom:30px;
+        }
+
+        .open-btn{
+
+            padding:16px 40px;
+
+            border:none;
+
+            border-radius:50px;
+
+            background:white;
+
+            color:#4c1d95;
+
+            font-size:18px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+            transition:0.3s;
+
+            box-shadow:
+                0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .open-btn:hover{
+
+            transform:scale(1.08);
+
+            background:#ede9fe;
+        }
+
+        /* =========================
+           MAIN LOGIN
+        ========================= */
+
+        .main-container{
+
+            width:100%;
+
+            height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #020617,
+                    #0f172a,
+                    #1e293b
+                );
+
+            position:relative;
+
+            overflow:hidden;
+        }
+
+        /* FLOATING EMOJIS */
+
+        .emoji{
+
+            position:absolute;
+
+            font-size:42px;
+
+            opacity:0.25;
+
+            animation:
+                floatEmoji 12s linear infinite;
+        }
+
+        .emoji:nth-child(1){
+            left:5%;
+            animation-duration:12s;
+        }
+
+        .emoji:nth-child(2){
+            left:18%;
+            animation-duration:15s;
+        }
+
+        .emoji:nth-child(3){
+            left:35%;
+            animation-duration:18s;
+        }
+
+        .emoji:nth-child(4){
+            left:52%;
+            animation-duration:14s;
+        }
+
+        .emoji:nth-child(5){
+            left:70%;
+            animation-duration:17s;
+        }
+
+        .emoji:nth-child(6){
+            left:88%;
+            animation-duration:13s;
+        }
+
+        @keyframes floatEmoji{
+
+            0%{
+                transform:
+                    translateY(100vh)
+                    rotate(0deg);
+            }
+
+            100%{
+                transform:
+                    translateY(-120vh)
+                    rotate(360deg);
+            }
+        }
+
+        /* LOGIN BOX */
+
+        .login-box{
+
+            width:400px;
+
+            background:
+                rgba(15,23,42,0.88);
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            backdrop-filter:blur(10px);
+
+            padding:40px;
+
+            border-radius:24px;
+
+            box-shadow:
+                0 0 40px rgba(124,58,237,0.35);
+
+            text-align:center;
+
+            z-index:10;
+
+            animation:
+                fadeIn 2s ease;
+        }
+
+        .logo{
+
+            font-size:65px;
+
+            margin-bottom:10px;
+
+            animation:
+                pulse 2s infinite;
+        }
+
+        h1{
+
+            color:white;
+
+            font-size:32px;
+
+            margin-bottom:8px;
+        }
+
+        .subtitle{
+
+            color:#cbd5e1;
+
+            margin-bottom:30px;
+
+            font-size:14px;
+        }
+
+        input{
+
+            width:100%;
+
+            padding:14px;
+
+            margin-bottom:18px;
+
+            border:none;
+
+            outline:none;
+
+            border-radius:12px;
+
+            background:#1e293b;
+
+            color:white;
+
+            font-size:15px;
+        }
+
+        input:focus{
+
+            border:
+                1px solid #8b5cf6;
+        }
+
+        button.login-btn{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:12px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #7c3aed,
+                    #9333ea
+                );
+
+            color:white;
+
+            font-size:16px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        button.login-btn:hover{
+
+            transform:scale(1.03);
+
+            box-shadow:
+                0 0 25px rgba(124,58,237,0.6);
+        }
+
+        .register-link{
+
+            margin-top:20px;
+
+            color:#cbd5e1;
+
+            font-size:14px;
+        }
+
+        .register-link a{
+
+            color:#c4b5fd;
+
+            text-decoration:none;
+        }
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+                transform:translateY(30px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @keyframes pulse{
+
+            0%{
+                transform:scale(1);
+            }
+
+            50%{
+                transform:scale(1.1);
+            }
+
+            100%{
+                transform:scale(1);
+            }
+        }
+
+        @keyframes float{
+
+            0%,100%{
+                transform:translateY(0px);
+            }
+
+            50%{
+                transform:translateY(-10px);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- INTRO SCREEN -->
+
+    <div class="intro-screen"
+         id="introScreen">
+
+        <div class="curtain left-curtain"
+             id="leftCurtain"></div>
+
+        <div class="curtain right-curtain"
+             id="rightCurtain"></div>
+
+        <div class="intro-content">
+
+            <h1>
+                🧠 Multimodal AI
+            </h1>
+
+            <p>
+                Emotion Detection using
+                Text, Face & Voice AI
+            </p>
+
+            <button class="open-btn"
+                    onclick="openCurtain()">
+
+                Try MultimodalAI
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN LOGIN -->
+
+    <div class="main-container">
+
+        <!-- FLOATING EMOJIS -->
+
+        <div class="emoji">😊</div>
+
+        <div class="emoji">😢</div>
+
+        <div class="emoji">😡</div>
+
+        <div class="emoji">😨</div>
+
+        <div class="emoji">🤖</div>
+
+        <div class="emoji">🧠</div>
+
+        <!-- LOGIN BOX -->
+
+        <div class="login-box">
+
+            <div class="logo">
+                🧠
+            </div>
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p class="subtitle">
+                Login to Emotion AI System
+            </p>
+
+            <form method="POST" action="/login" autocomplete="off">
+
+    <input type="email"
+           name="email"
+           autocomplete="off"
+           placeholder="Enter Email"
+           required>
+
+    <input type="password"
+           name="password"
+           autocomplete="new-password"
+           placeholder="Enter Password"
+           required>
+
+    <button type="submit"
+            class="login-btn">
+        Login
+    </button>
+
+</form>
+
+            <div class="register-link">
+
+                Don't have account?
+
+                <a href="/register">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function openCurtain(){
+
+            document
+            .getElementById(
+                "leftCurtain"
+            )
+            .classList.add(
+                "open-left"
+            );
+
+            document
+            .getElementById(
+                "rightCurtain"
+            )
+            .classList.add(
+                "open-right"
+            );
+
+            setTimeout(() => {
+
+                document
+                .getElementById(
+                    "introScreen"
+                )
+                .style.display = "none";
+
+            }, 2000);
+        }
+
+    </script>
+
+</body>
+
+</html>
+```

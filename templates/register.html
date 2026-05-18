@@ -1,0 +1,386 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Emotion AI Register</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+
+            height:100vh;
+
+            overflow:hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #020617,
+                    #0f172a,
+                    #1e293b
+                );
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            position:relative;
+        }
+
+        /* FLOATING EMOJIS */
+
+        .emoji{
+
+            position:absolute;
+
+            font-size:42px;
+
+            opacity:0.25;
+
+            animation:
+                float 12s linear infinite;
+        }
+
+        .emoji:nth-child(1){
+            left:8%;
+            animation-duration:13s;
+        }
+
+        .emoji:nth-child(2){
+            left:22%;
+            animation-duration:17s;
+        }
+
+        .emoji:nth-child(3){
+            left:40%;
+            animation-duration:15s;
+        }
+
+        .emoji:nth-child(4){
+            left:63%;
+            animation-duration:18s;
+        }
+
+        .emoji:nth-child(5){
+            left:82%;
+            animation-duration:12s;
+        }
+
+        @keyframes float{
+
+            0%{
+                transform:
+                    translateY(100vh)
+                    rotate(0deg);
+            }
+
+            100%{
+                transform:
+                    translateY(-120vh)
+                    rotate(360deg);
+            }
+        }
+
+        /* CURTAIN EFFECT */
+
+        .curtain-left,
+        .curtain-right{
+
+            position:absolute;
+
+            top:0;
+
+            width:50%;
+
+            height:100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #172554,
+                    #0f172a
+                );
+
+            z-index:2;
+
+            animation-duration:2s;
+
+            animation-fill-mode:forwards;
+        }
+
+        .curtain-left{
+
+            left:0;
+
+            animation-name:openLeft;
+        }
+
+        .curtain-right{
+
+            right:0;
+
+            animation-name:openRight;
+        }
+
+        @keyframes openLeft{
+
+            to{
+                transform:translateX(-100%);
+            }
+        }
+
+        @keyframes openRight{
+
+            to{
+                transform:translateX(100%);
+            }
+        }
+
+        /* REGISTER BOX */
+
+        .register-box{
+
+            width:400px;
+
+            background:
+                rgba(15,23,42,0.88);
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            backdrop-filter:blur(10px);
+
+            padding:40px;
+
+            border-radius:22px;
+
+            box-shadow:
+                0 0 35px rgba(56,189,248,0.25);
+
+            text-align:center;
+
+            z-index:5;
+
+            animation:
+                fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .logo{
+
+            font-size:60px;
+
+            margin-bottom:10px;
+
+            animation:
+                pulse 2s infinite;
+        }
+
+        @keyframes pulse{
+
+            0%{
+                transform:scale(1);
+            }
+
+            50%{
+                transform:scale(1.1);
+            }
+
+            100%{
+                transform:scale(1);
+            }
+        }
+
+        h1{
+
+            color:white;
+
+            font-size:30px;
+
+            margin-bottom:8px;
+        }
+
+        .subtitle{
+
+            color:#94a3b8;
+
+            margin-bottom:30px;
+
+            font-size:14px;
+        }
+
+        input{
+
+            width:100%;
+
+            padding:14px;
+
+            margin-bottom:18px;
+
+            border:none;
+
+            outline:none;
+
+            border-radius:12px;
+
+            background:#1e293b;
+
+            color:white;
+
+            font-size:15px;
+        }
+
+        input:focus{
+
+            border:
+                1px solid #38bdf8;
+        }
+
+        button{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:12px;
+
+            background:#38bdf8;
+
+            color:white;
+
+            font-size:16px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        button:hover{
+
+            background:#0ea5e9;
+
+            transform:scale(1.03);
+        }
+
+        .login-link{
+
+            margin-top:20px;
+
+            color:#cbd5e1;
+
+            font-size:14px;
+        }
+
+        .login-link a{
+
+            color:#38bdf8;
+
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- CURTAIN -->
+    <div class="curtain-left"></div>
+
+    <div class="curtain-right"></div>
+
+    <!-- FLOATING EMOJIS -->
+    <div class="emoji">😊</div>
+
+    <div class="emoji">😢</div>
+
+    <div class="emoji">😡</div>
+
+    <div class="emoji">😨</div>
+
+    <div class="emoji">🤖</div>
+
+    <!-- REGISTER BOX -->
+    <div class="register-box">
+
+        <div class="logo">
+            🤖
+        </div>
+
+        <h1>
+            Create Account
+        </h1>
+
+        <p class="subtitle">
+            Join Emotion AI Analysis System
+        </p>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="name"
+                   placeholder="Enter Name"
+                   required>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Enter Email"
+                   required>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter Password"
+                   required>
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <div class="login-link">
+
+            Already have account?
+
+            <a href="/login">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+```

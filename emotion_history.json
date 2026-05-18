@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "date": "15-05-2026",
+        "time": "01:37:20 PM",
+        "text_emotion": "sadness",
+        "face_emotion": "fear",
+        "voice_emotion": null,
+        "final_emotion": "sadness"
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "date": "15-05-2026",
+        "time": "01:41:19 PM",
+        "text_emotion": "sadness",
+        "face_emotion": "neutral",
+        "voice_emotion": null,
+        "final_emotion": "sadness"
+    },
+    {
+        "id": 3,
+        "user_id": 1,
+        "date": "15-05-2026",
+        "time": "01:42:00 PM",
+        "text_emotion": "joy",
+        "face_emotion": "fear",
+        "voice_emotion": null,
+        "final_emotion": "fear"
+    },
+    {
+        "id": 4,
+        "user_id": 1,
+        "date": "15-05-2026",
+        "time": "01:55:40 PM",
+        "text_emotion": "sadness",
+        "face_emotion": "fear",
+        "voice_emotion": null,
+        "final_emotion": "fear"
+    },
+    {
+        "id": 5,
+        "user_id": 1,
+        "date": "15-05-2026",
+        "time": "02:55:08 PM",
+        "text_emotion": "joy",
+        "face_emotion": "sad",
+        "voice_emotion": null,
+        "final_emotion": "sad"
+    },
+    {
+        "id": 6,
+        "user_id": 3,
+        "date": "15-05-2026",
+        "time": "03:10:14 PM",
+        "text_emotion": "sadness",
+        "face_emotion": "surprise",
+        "voice_emotion": null,
+        "final_emotion": "sadness"
+    },
+    {
+        "id": 7,
+        "user_id": 3,
+        "date": "15-05-2026",
+        "time": "03:11:01 PM",
+        "text_emotion": "sadness",
+        "face_emotion": null,
+        "voice_emotion": null,
+        "final_emotion": "sadness"
+    },
+    {
+        "id": 8,
+        "user_id": 7,
+        "date": "18-05-2026",
+        "time": "12:57:19 PM",
+        "text_emotion": "sadness",
+        "face_emotion": "fear",
+        "voice_emotion": null,
+        "final_emotion": "fear"
+    },
+    {
+        "id": 9,
+        "user_id": 7,
+        "date": "18-05-2026",
+        "time": "12:58:19 PM",
+        "text_emotion": "neutral",
+        "face_emotion": "fear",
+        "voice_emotion": null,
+        "final_emotion": "fear"
+    },
+    {
+        "id": 10,
+        "user_id": 7,
+        "date": "18-05-2026",
+        "time": "12:58:47 PM",
+        "text_emotion": "neutral",
+        "face_emotion": "happy",
+        "voice_emotion": null,
+        "final_emotion": "happy"
+    }
+]

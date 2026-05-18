@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultimodalTransformer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo-wrap">
+            <h2 class="logo">🧠 MultimodalTransformer</h2>
+            <p class="sidebar-subtitle">
+                Intelligent Emotion Recognition System
+            </p>
+        </div>
+
+        <button class="nav-btn active" onclick="switchTab('text', this)">📝 Text Analysis</button>
+        <button class="nav-btn" onclick="switchTab('face', this)">📷 Face Detection</button>
+        <button class="nav-btn" onclick="switchTab('voice', this)">🎤 Voice Analysis</button>
+        <button class="nav-btn" onclick="switchTab('fusion', this)">🧠 Fusion AI</button>
+        <button class="nav-btn" onclick="switchTab('history', this)">📜 History</button>
+        <button class="nav-btn" onclick="switchTab('timeline', this)">📈 Timeline</button>
+        <button class="nav-btn" onclick="switchTab('wellness', this)">🎮 Wellness Zone</button>
+        <button class="nav-btn" onclick="switchTab('profile', this)">👤 Profile</button>
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <div class="topbar">
+            <div>
+                <h1 class="app-title">Mental Health Emotion Analysis</h1>
+                <p class="app-subtitle">
+                    AI-powered multimodal emotion recognition using text, face and voice
+                </p>
+            </div>
+
+            <div class="status-badge">
+                🟢 AI Active
+            </div>
+        </div>
+
+
+        <!-- HERO -->
+        <div class="card hero-card">
+            <h2>🚀 Multimodal Transformer Dashboard</h2>
+            <p>
+                Analyze human emotions in real time through integrated
+                text processing, face recognition, voice analysis and
+                multimodal AI fusion.
+            </p>
+        </div>
+
+
+        <!-- TEXT TAB -->
+        <section id="text" class="tab active">
+            <div class="card">
+                <h2>📝 Text Emotion Detection</h2>
+
+                <form method="POST">
+                    <textarea
+                        name="text"
+                        placeholder="Type your thoughts here..."
+                        required></textarea>
+
+                    <button type="submit" class="btn">
+                        Analyze Emotion
+                    </button>
+                </form>
+
+                {% if emotion %}
+                <div class="result">
+                    <div class="emotion-box {{ emotion }}">
+                        <span>Detected Emotion</span>
+                        <strong>{{ emotion | upper }}</strong>
+                    </div>
+
+                    <p class="confidence-text">
+                        Confidence: {{ confidence }}%
+                    </p>
+
+                    <div class="progress-bar">
+                        <div class="progress"
+                             style="width: {{ confidence }}%">
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden"
+                       id="saved-text-emotion"
+                       value="{{ emotion }}">
+
+                <input type="hidden"
+                       id="saved-text-confidence"
+                       value="{{ confidence }}">
+                {% endif %}
+            </div>
+        </section>
+
+
+        <!-- FACE TAB -->
+        <section id="face" class="tab">
+            <div class="card">
+
+                <h2>📷 Face Emotion Detection</h2>
+
+                <div class="camera-box">
+
+                    <video id="video"
+                           autoplay
+                           playsinline></video>
+
+                    <div class="camera-controls">
+                        <button class="btn" onclick="startCamera()">Start Camera</button>
+                        <button class="btn" onclick="capture()">Capture</button>
+                        <button class="btn danger" onclick="stopCamera()">Stop</button>
+                    </div>
+
+                </div>
+
+                <canvas id="canvas" style="display:none;"></canvas>
+
+                <div id="face-result" class="result"></div>
+
+            </div>
+        </section>
+
+
+        <!-- VOICE TAB -->
+        <section id="voice" class="tab">
+            <div class="card">
+
+                <h2>🎤 Voice Emotion Detection</h2>
+
+                <div class="camera-controls">
+                    <button class="btn" onclick="startRecording()">Start Recording</button>
+                    <button class="btn warning" onclick="detectEmotion()">Detect Emotion</button>
+                    <button class="btn danger" onclick="stopRecording()">Stop</button>
+                </div>
+
+                <div id="recording-status" class="status">
+                    🔴 Not Recording
+                </div>
+
+                <div class="visualizer-container">
+                    <canvas id="audioVisualizer"
+                            width="700"
+                            height="120"></canvas>
+                </div>
+
+                <div class="subtitle-box">
+                    <span class="subtitle-label">📝 Live Speech</span>
+                    <p id="subtitle">🎤 Say something...</p>
+                </div>
+
+                <div id="voice-result" class="result"></div>
+
+            </div>
+        </section>
+
+
+        <!-- FUSION TAB -->
+        <section id="fusion" class="tab">
+            <div class="card">
+
+                <h2>🧠 Fusion Emotion Analysis</h2>
+
+                <div class="fusion-box">
+
+                    <ul>
+                        <li>📝 Text Emotion</li>
+                        <li>📷 Face Emotion</li>
+                        <li>🎤 Voice Emotion</li>
+                    </ul>
+
+                    <p class="fusion-info">
+                        Combines all emotional signals to generate final prediction.
+                    </p>
+
+                    <button class="btn fusion-btn"
+                            onclick="runFusionAnalysis()">
+                        🚀 Run Fusion Analysis
+                    </button>
+
+
+                </div>
+
+                <div id="fusion-result"
+                     class="result"
+                     style="margin-top:25px;"></div>
+
+            </div>
+        </section>
+
+
+        <!-- HISTORY TAB -->
+        <section id="history" class="tab">
+            <div class="card">
+
+                <h2>📜 Emotion History</h2>
+
+                <div id="emotion-history"
+                     class="history-container">
+                    <p>No emotion history yet</p>
+                </div>
+            <button class="btn"
+                            onclick="exportReport()"
+                            style="margin-top:15px;">
+                        📄 Export Report
+            </button>
+            </div>
+        </section>
+
+
+<!-- TIMELINE TAB -->
+    <section id="timeline" class="tab">
+        <div class="card">
+
+        <h2>📈 Emotion Timeline Graph</h2>
+
+        <button class="btn"
+                onclick="clearTimelineGraph()"
+                style="margin-bottom:15px;">
+            🗑 Clear Graph
+        </button>
+
+            <div class="timeline-box">
+                <canvas id="timelineChart"
+                    width="900"
+                    height="450"></canvas>
+            </div>
+
+        </div>
+    </section>
+
+<!-- FUN ZONE -->
+        <section id="wellness" class="tab">
+    <div class="card">
+
+        <h2>🎮 Wellness Zone</h2>
+
+        <div class="wellness-grid">
+
+            <div class="wellness-item">
+                <a href="https://www.youtube.com/results?search_query=happy+mood+music"
+                   target="_blank">
+                    <button class="btn">🎵 Mood Booster</button>
+                </a>
+                <p>Boost positivity when feeling low or emotionally flat</p>
+            </div>
+
+            <div class="wellness-item">
+                <a href="https://www.youtube.com/results?search_query=funny+videos"
+                   target="_blank">
+                    <button class="btn">😂 Funny Videos</button>
+                </a>
+                <p>Instant laughter therapy for stress relief</p>
+            </div>
+
+            <div class="wellness-item">
+                <a href="https://www.youtube.com/results?search_query=guided+meditation"
+                   target="_blank">
+                    <button class="btn">🧘 Meditation</button>
+                </a>
+                <p>Calming guided breathing for anxiety and anger</p>
+            </div>
+
+            <div class="wellness-item">
+                <a href="https://www.youtube.com/results?search_query=brain+mini+games"
+                   target="_blank">
+                    <button class="btn">🎮 Mini Games</button>
+                </a>
+                <p>Refresh your mind with engaging brain activity</p>
+            </div>
+
+        </div>
+
+        <p style="margin-top:20px;">
+            💙 Your mental wellness matters.
+        </p>
+
+    </div>
+</section>
+
+<!-- USER PROFILE -->
+<section id="profile" class="tab">
+    <div class="card profile-card">
+
+        <h2>👤 User Profile</h2>
+
+        <div class="profile-box">
+
+            <div class="profile-avatar">
+                🧠
+            </div>
+
+            <h3>{{ session['name'] }}</h3>
+
+            <p>Welcome back, {{ session['name'] }}</p>
+
+            <div class="profile-stats">
+
+                <div class="stat-box">
+                    <strong id="total-records">0</strong>
+                    <span>Total Analyses</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong>AI</strong>
+                    <span>Status Active</span>
+                </div>
+
+            </div>
+
+            <button class="btn danger"
+                    onclick="window.location.href='/logout'">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+</section>
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
