@@ -98,5 +98,15 @@
         "face_emotion": "happy",
         "voice_emotion": null,
         "final_emotion": "happy"
+    },
+    {
+        "id": 11,
+        "user_id": 7,
+        "date": "19-05-2026",
+        "time": "12:15:44 AM",
+        "text_emotion": "sadness",
+        "face_emotion": "neutral",
+        "voice_emotion": null,
+        "final_emotion": "neutral"
     }
 ]
