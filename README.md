@@ -8,19 +8,6 @@ The project aims to improve emotion recognition accuracy compared to traditional
 
 ---
 
-## 🚀 Features
-
-* Text Emotion Analysis using NLP
-* Facial Emotion Detection using OpenCV and Deep Learning
-* Voice Emotion Recognition
-* Multimodal Fusion Analysis
-* User Authentication (Login & Registration)
-* Emotion History Tracking
-* Mood Timeline Graph Visualization
-* AI-Based Emotion Insights
-* Interactive Web Interface
-
----
 
 ## 🏗️ System Architecture
 
@@ -93,6 +80,34 @@ Database Storage & Visualization
 
 ---
 
+#  ScreenShots
+
+### Main UI Design
+![Main UI](images/MainUI.png)
+
+### Login & Registration
+
+## Registration Page
+![Registration Page](images/register.png)
+
+## Login Page
+![Login Page](images/login.png)
+
+## User Profile
+![UserProfile](images/UserProfile.png)
+
+### Emotion Analysis Results
+
+![Text Emotion](images/text_emotion.png)
+![Face Emotion](images/face_emotion.png)
+![Voice Emotion](images/voice_emotion.png)
+![final_prediction](images/final_prediction.png)
+![History](images/history.png)
+![Timeline Graph Of Emotions](images/TimelineGraph.png)
+![FunZone](images/FunZone.png)
+
+---
+
 ## 📊 Dataset
 
 The project uses:
@@ -145,14 +160,17 @@ python app.py
 
 ---
 
-## 📈 Future Scope
+## 🚀 Features
 
-* Cloud Deployment
-* Mobile Application Integration
-* Advanced Transformer Models
-* Real-Time Counseling Support
-* Multilingual Emotion Analysis
-* AI-Based Recommendation System
+* Text Emotion Analysis using NLP
+* Facial Emotion Detection using OpenCV and Deep Learning
+* Voice Emotion Recognition
+* Multimodal Fusion Analysis
+* User Authentication (Login & Registration)
+* Emotion History Tracking
+* Mood Timeline Graph Visualization
+* AI-Based Emotion Insights
+* Interactive Web Interface
 
 ---
 
@@ -166,31 +184,15 @@ python app.py
 * Behavioral Analysis Systems
 
 ---
-#  ScreenShots
 
-### Main UI Design
-![Main UI](images/MainUI.png)
+## 📈 Future Scope
 
-### Login & Registration
-
-## Registration Page
-![Registration Page](images/register.png)
-
-## Login Page
-![Login Page](images/login.png)
-
-## User Profile
-![UserProfile](images/UserProfile.png)
-
-### Emotion Analysis Results
-
-![Text Emotion](images/text_emotion.png)
-![Face Emotion](images/face_emotion.png)
-![Voice Emotion](images/voice_emotion.png)
-![final_prediction](images/final_prediction.png)
-![History](images/history.png)
-![Timeline Graph Of Emotions](images/TimelineGraph.png)
-![FunZone](images/FunZone.png)
+* Cloud Deployment
+* Mobile Application Integration
+* Advanced Transformer Models
+* Real-Time Counseling Support
+* Multilingual Emotion Analysis
+* AI-Based Recommendation System
 
 ---
 
