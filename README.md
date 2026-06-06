@@ -166,74 +166,32 @@ python app.py
 * Behavioral Analysis Systems
 
 ---
-# 🧠 Multimodal Transformer: Intelligent Emotion Recognition System ScreenShots
+#  ScreenShots
 
-## Main Dashboard
-
-```md
+### Main UI Design
 ![Main UI](images/MainUI.png)
-```
 
-## Login Page
-
-```md
-![Login Page](images/login.png)
-```
+### Login & Registration
 
 ## Registration Page
-
-```md
 ![Registration Page](images/register.png)
-```
 
 ## User Profile
+![UserProfile](images/UserProfile.png)
 
-```md
-![User Profile](images/UserProfile.png)
-```
 
-## Text Emotion Analysis
+## Login Page
+![Login Page](images/login.png)
 
-```md
-![Text Emotion Analysis](images/text_emotion.png)
-```
+### Emotion Analysis Results
 
-## Facial Emotion Detection
-
-```md
-![Facial Emotion Detection](images/face_emotion.png)
-```
-
-## Voice Emotion Detection
-
-```md
-![Voice Emotion Detection](images/voice_emotion.png)
-```
-
-## Final Emotion Prediction
-
-```md
-![Final Emotion Prediction](images/final_prediction.png)
-```
-
-## Emotion History
-
-```md
-![Emotion History](images/history.png)
-```
-
-## Timeline Graph Visualization
-
-```md
-![Timeline Graph Visualization](images/TimelineGraph.png)
-```
-
-## Fun Zone
-
-```md
-![Fun Zone](images/FunZone.png)
-```
-
+![Text Emotion](images/text_emotion.png)
+![Face Emotion](images/face_emotion.png)
+![Voice Emotion](images/voice_emotion.png)
+![final_prediction](images/final_prediction.png)
+![History](images/history.png)
+![Timeline Graph Of Emotions](images/TimelineGraph.png)
+![FunZone](images/FunZone.png)
 
 ---
 
