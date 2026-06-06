@@ -176,12 +176,11 @@ python app.py
 ## Registration Page
 ![Registration Page](images/register.png)
 
-## User Profile
-![UserProfile](images/UserProfile.png)
-
-
 ## Login Page
 ![Login Page](images/login.png)
+
+## User Profile
+![UserProfile](images/UserProfile.png)
 
 ### Emotion Analysis Results
 
