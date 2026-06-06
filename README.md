@@ -166,6 +166,76 @@ python app.py
 * Behavioral Analysis Systems
 
 ---
+# 🧠 Multimodal Transformer: Intelligent Emotion Recognition System ScreenShots
+
+## Main Dashboard
+
+```md
+![Main UI](images/MainUI.png)
+```
+
+## Login Page
+
+```md
+![Login Page](images/login.png)
+```
+
+## Registration Page
+
+```md
+![Registration Page](images/register.png)
+```
+
+## User Profile
+
+```md
+![User Profile](images/UserProfile.png)
+```
+
+## Text Emotion Analysis
+
+```md
+![Text Emotion Analysis](images/text_emotion.png)
+```
+
+## Facial Emotion Detection
+
+```md
+![Facial Emotion Detection](images/face_emotion.png)
+```
+
+## Voice Emotion Detection
+
+```md
+![Voice Emotion Detection](images/voice_emotion.png)
+```
+
+## Final Emotion Prediction
+
+```md
+![Final Emotion Prediction](images/final_prediction.png)
+```
+
+## Emotion History
+
+```md
+![Emotion History](images/history.png)
+```
+
+## Timeline Graph Visualization
+
+```md
+![Timeline Graph Visualization](images/TimelineGraph.png)
+```
+
+## Fun Zone
+
+```md
+![Fun Zone](images/FunZone.png)
+```
+
+
+---
 
 ## 👨‍💻 Developed By
 
