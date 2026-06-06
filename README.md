@@ -170,7 +170,9 @@ python app.py
 ## 👨‍💻 Developed By
 
 Nayan Pawar
+
 BTech AIML
+
 Mini Project – 2025-26
 
 ---
